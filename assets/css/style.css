@@ -5,6 +5,7 @@ body {
 }
 
 textarea{
+  height: auto;
   background: transparent;
   border: none;
   resize: none;
@@ -13,89 +14,107 @@ textarea{
   padding: 10px;
 }
 
-.jumbotron {
+label,
+input[type=text] {
+  display: block;
+}
+
+.centerThis {
   text-align: center;
-  background-color: transparent;
-  color: black;
-  border-radius: 0;
-  border-bottom: 10px solid black;
+  justify-content: center;
 }
 
-.stay {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-
-.description{
-  white-space: pre-wrap;
-}
-
-.time-block{
-  text-align: center;
-  border-radius: 15px;
+.topEl {
+  margin-top: 2.5%;
+  margin-bottom: 5%;
 }
 
 .row {
-  white-space: pre-wrap;
-  height: 80px;
   border-top: 1px solid white;;
+  height: auto;
+  
 }
 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-}
-
-.past {
-  background-color: #d3d3d3;
-  color: white;
-}
-
-.present {
-  background-color: #ff6961;
-  color: white;
-}
-
-.future {
-  background-color: #77dd77;
-  color: white;
-}
-
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
-}
-
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all .3s ease-in-out;
-}
-/* user input styles */
-
-#userInputContainer {
-  margin-left: 10%;
-}
-
-#userInput {
-  border: 1px solid black;
-  border-radius: 5px;
-  white-space: nowrap;
-  height: fit-content;
-}
-
-#errorMsg {
+.errorMsg {
   color: red;
 }
 
-#confirmation {
+.confirmation {
   color:green;
 }
 
 [aria-hidden='true']{
   display: none;
+}
+
+/* input styles: options  */
+.options {
+  text-align: center;
+  
+}
+.optionsAlign{
+  justify-content: center;
+}
+.optionsAlign p {
+  font-size: 15px;
+  text-align:center;
+}
+.work{
+  background-color: orangered;
+}
+
+.school {
+  background-color: purple;
+}
+
+.family {
+  background-color: lightblue;
+}
+
+.dr {
+  background-color: teal;
+}
+
+.misc {
+  background-color: pink;
+}
+
+/* todays date:style */
+#month,
+#day,
+#year {
+  margin: 5px;
+  font-size: 24px;
+  border: 2px solid black;
+  background-color: #717D8C;
+  border-radius: 10px;
+  color: #DDDDDD;
+  padding: 10px;
+}
+
+.hour {
+  border: .5px solid black;
+  max-height: 40px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  height: fit-content;
+  padding-top: 5px;
+}
+.dailyList {
+background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+padding: 10px;
+}
+
+.hour.expand {
+  max-height: 200px;
+}
+
+.timeFloat {
+  float: left;
 }

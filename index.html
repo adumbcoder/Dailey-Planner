@@ -19,27 +19,40 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    
     <title>Work Day Scheduler</title>
   </head>
 
   <body>
-    <div class="stay">
-      <header class="jumbotron">
-      <h1 class="display-3">Work Day Scheduler</h1>
-      <p class="lead">A simple calendar app for scheduling your work day</p>
-      <p id="currentDay" class="lead"></p>
+  <div class="container">
+      <div class=" row centerThis">
+        <div class="col-3">
+          <h1>Work Day Scheduler</h1>
+          <p>A simple calendar app for scheduling your work day</p>
+        </div>
+      </div>  
+    <hr>
+    <div class="centerThis">
+      <p>Todays date</p>
       <p id="currentTime"></p>
-      </header>
-    </div>
-    <div id="userInputContainer" class="col-md-12">
-      <div class="col-md-10">
-        <ul id="dailyPlannerList"></ul>
-    </div>
-    <div class="container">
-      <!-- Timeblocks go here -->
+      <div class="row centerThis">
+        <p id="month"></p>
+        <p id="day"></p>
+        <p id="year"></p>
+      </div>
+      
     </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+        <div class=" col-12 ">
+          <div class="row centerThis">
+            <div class="col-10 dailyList">
+             
+            </div>  
+          </div>
+        </div>
+      
+  </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
     <script src="assets/javascript/main.js"></script>
