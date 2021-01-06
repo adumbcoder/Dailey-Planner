@@ -4,20 +4,12 @@ body {
   line-height: 1;
 }
 
-textarea{
-  height: auto;
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
-}
-
 label,
 input[type=text] {
   display: block;
 }
+
+
 
 .centerThis {
   text-align: center;
@@ -32,51 +24,6 @@ input[type=text] {
 .row {
   border-top: 1px solid white;;
   height: auto;
-  
-}
-
-.errorMsg {
-  color: red;
-}
-
-.confirmation {
-  color:green;
-}
-
-[aria-hidden='true']{
-  display: none;
-}
-
-/* input styles: options  */
-.options {
-  text-align: center;
-  
-}
-.optionsAlign{
-  justify-content: center;
-}
-.optionsAlign p {
-  font-size: 15px;
-  text-align:center;
-}
-.work{
-  background-color: orangered;
-}
-
-.school {
-  background-color: purple;
-}
-
-.family {
-  background-color: lightblue;
-}
-
-.dr {
-  background-color: teal;
-}
-
-.misc {
-  background-color: pink;
 }
 
 /* todays date:style */
@@ -94,13 +41,14 @@ input[type=text] {
 
 .hour {
   border: .5px solid black;
-  max-height: 40px;
+  max-height: 50px;
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 2px;
   border-radius: 5px;
   height: fit-content;
   padding-top: 5px;
+  padding-bottom: 5px;
 }
 .dailyList {
 background: rgba( 255, 255, 255, 0.25 );
@@ -111,10 +59,31 @@ border-radius: 10px;
 padding: 10px;
 }
 
-.hour.expand {
-  max-height: 200px;
-}
-
 .timeFloat {
   float: left;
+}
+
+.save {
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-right: auto;
+}
+
+.time {
+  text-align: center;
+  font-size: 18px;
+  text-decoration: underline;
+}
+
+/* colorChange */
+.focusInput{
+  background-color: lightblue;
+}
+
+.past {
+  background-color: red;
+}
+
+.future {
+  background-color: lightgreen;
 }

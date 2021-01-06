@@ -1,10 +1,6 @@
-$(document).ready(function() {
-
-let submit = document.querySelector('#submit');
-let listEl = document.querySelector('#dailyPlannerList');
-let errorMsg = document.querySelector('.errorMsg');
-let confirm = document.querySelector('.confirmation');
-
+window.onload = function()
+{
+    
 
 setInterval(() => {
     let todayDate = new Date();
@@ -30,54 +26,81 @@ let curDay = todayDate.getDate();
 document.querySelector('#month').textContent = (curMonth < 10 ? '0' : '') + curMonth;
 document.querySelector('#day').textContent = (curDay < 10 ? '0' : '') + curDay;
 document.querySelector('#year').textContent = curYear;
+
+
 }, 500);
 
-function genList() {
+
+
+
+const times = 
+    [
+        {time:'9:00 a.m.', key: '9'},
+        {time:'10:00 a.m.', key: '10'},
+        {time:'11:00 a.m.', key: '11'},
+        {time:'12:00 p.m.', key: '12'},
+        {time:'1:00 p.m.', key: '1'},
+        {time:'2:00 p.m.', key: '2'},
+        {time:'3:00 p.m.', key: '3'},
+        {time:'4:00 p.m.', key: '4'},
+        {time:'5:00 p.m.', key: '5'},
+        
+    ]
     
 
-
-    let times = ['12:00 a.m.', '1:00 a.m.', '2:00 a.m.', '3:00 a.m.', '4:00 a.m.', '5:00 a.m.', '6:00 a.m.', '7:00 a.m.', '8:00 a.m.', '9:00 a.m.', '10:00 a.m.', '11:00 a.m.','12:00 p.m.', '1:00 p.m.', '2:00 p.m.', '3:00 p.m.', '4:00 p.m.', '5:00 p.m.', '6:00 p.m.', '7:00 p.m.', '8:00 p.m.', '9:00 p.m.', '10:00 p.m.', '11:00 p.m.']
-
-    for(let i = 0; i < times.length; i++){
-        let time = times[i];
-        let newTimeBlock = document.createElement('div')
-        newTimeBlock.classList.add('hour', 'row');
-        newTimeBlock.id = time;
+function genList() 
+{
+    for(let i = 0; i < times.length; i++)
+    {
+        const newTimeBlock = document.createElement('div')
+        newTimeBlock.classList.add('row', 'hour');
+        newTimeBlock.id = times[i].key;
         document.querySelector('.dailyList').appendChild(newTimeBlock);
         
         //add the individual col per row
         //time Column
-        let timeCol = document.createElement('div');
-        let timeText = document.createElement('p');
-        timeCol.classList.add('col-2')
-        timeText.textContent = time;
-        newTimeBlock.appendChild(timeCol);
-        timeCol.appendChild(timeText);
+        const timeText = document.createElement('p');
+        timeText.classList.add('col-2', 'time')
+        timeText.textContent = times[i].time;
+        newTimeBlock.appendChild(timeText);
 
         //input column
-        let inputCol = document.createElement('div');
-        let inputText = document.createElement('input');
-        inputCol.classList.add('col-9')
+        const inputText = document.createElement('input');
+        inputText.classList.add('col-9', 'inputs')
         inputText.style.width = '100%';
-        newTimeBlock.appendChild(inputCol);
-        inputCol.appendChild(inputText);
+        inputText.id = times[i].key;
+        //pulls the localStorage values on page load
+        inputText.value = localStorage.getItem(times[i].key);
+        newTimeBlock.appendChild(inputText);
 
         //save button column
-        let saveCol = document.createElement('div');
-        let saveBut = document.createElement('button')
-        saveCol.classList.add('col-1');
-        saveBut.textContent = 'Save';
-        newTimeBlock.appendChild(saveCol);
-        saveCol.appendChild(saveBut);
-
-        
-
-        
-
-
-
+        const saveBttn = document.createElement('button')
+        saveBttn.classList.add('col-1', 'save');
+        saveBttn.textContent = 'Save';
+        saveBttn.id = times[i].key;
+        newTimeBlock.appendChild(saveBttn);
     }
-    return
-}
+
+    
+};
+
 genList();
-});
+
+//add a listener to see if a button is clicked with the class of .save
+document.addEventListener('click', function(evt) 
+        {
+            if(evt.target.matches('.save')){
+                //stores the target that was clicked
+                const btnClicked = evt.target;
+                //stores the input in the same divs id
+                const inptSel = btnClicked.previousElementSibling.id;
+                //stores the inputs text value
+                const inptVal = btnClicked.previousElementSibling.value;
+                //stores the id/value in the Local Storage
+                localStorage.setItem(inptSel, inptVal);
+            }
+        });
+
+
+
+};
