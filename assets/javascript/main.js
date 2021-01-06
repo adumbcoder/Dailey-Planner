@@ -27,7 +27,7 @@ document.querySelector('#month').textContent = (curMonth < 10 ? '0' : '') + curM
 document.querySelector('#day').textContent = (curDay < 10 ? '0' : '') + curDay;
 document.querySelector('#year').textContent = curYear;
 
-
+colorChange();
 }, 500);
 
 
@@ -39,11 +39,11 @@ const times =
         {time:'10:00 a.m.', key: '10'},
         {time:'11:00 a.m.', key: '11'},
         {time:'12:00 p.m.', key: '12'},
-        {time:'1:00 p.m.', key: '1'},
-        {time:'2:00 p.m.', key: '2'},
-        {time:'3:00 p.m.', key: '3'},
-        {time:'4:00 p.m.', key: '4'},
-        {time:'5:00 p.m.', key: '5'},
+        {time:'1:00 p.m.', key: '13'},
+        {time:'2:00 p.m.', key: '14'},
+        {time:'3:00 p.m.', key: '15'},
+        {time:'4:00 p.m.', key: '16'},
+        {time:'5:00 p.m.', key: '17'},
         
     ]
     
@@ -86,6 +86,34 @@ function genList()
 
 genList();
 
+function colorChange()
+{
+    let todayDate = new Date();
+    let hour = todayDate.getHours(); //24 format
+    
+    for(let i = 0; i < 9; i++)
+    {
+        let x = document.querySelectorAll('.hour')[i].id;
+        
+        if(parseInt(x) === hour)
+        {
+             document.querySelectorAll('.hour')[i].className= 'row hour focusInput';
+        }
+        else if(parseInt(x) < hour)
+        {
+            document.querySelectorAll('.hour')[i].className = 'row hour past';
+        }
+        else
+        {
+            document.querySelectorAll('.hour')[i].className = 'row hour future';
+        }
+        
+    }
+    
+}
+
+
+
 //add a listener to see if a button is clicked with the class of .save
 document.addEventListener('click', function(evt) 
         {
@@ -100,6 +128,23 @@ document.addEventListener('click', function(evt)
                 localStorage.setItem(inptSel, inptVal);
             }
         });
+
+document.addEventListener('click', function(evt)
+{
+    if(evt.target.matches('.clear'))
+    {
+        for(let i = 0; i < 9; i++)
+        {
+            let el = document.querySelectorAll('input');
+            if (el[i].type == 'text')
+            {
+                el[i].value = '';
+            }
+        }
+        
+        localStorage.clear();
+    }
+})
 
 
 

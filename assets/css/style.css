@@ -9,11 +9,19 @@ input[type=text] {
   display: block;
 }
 
+button {
+  border-radius: 5px;
+}
 
-
+.clear {
+  height: 30px;
+  width: 100px;
+  margin-bottom: 10px;
+}
 .centerThis {
   text-align: center;
   justify-content: center;
+
 }
 
 .topEl {
